@@ -1,11 +1,17 @@
 ﻿<h2>Comics</h2>
 
-<ul>
-    @foreach (Comic comic in ViewBag.comics)
-    {
-        <li>@comic.Title - @comic.IssueNumber</li>
-    }
-</ul>
+<form method="post" action="/Comics/remove">
+    <ul>
+        @foreach (Comic comic in ViewBag.comics)
+        {
+            <li>@comic.Title - @comic.IssueNumber
+            <input type="checkbox" name="removedComic" value="@comic.ComicID"/>
+            </li>
+        }
+    </ul>
+    <button>Remove</button>
+    
+</form>
 
 <form method="post" action="/Comics/add">
     <label>Issue # <input type="number" size="3" name="issueNumber"/></label>
